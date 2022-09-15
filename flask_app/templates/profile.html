@@ -24,7 +24,7 @@
         <tbody>
             {% for workout in all_workouts %}
                 <tr>
-                    <td>{{ workout.created_at }}</td>
+                    <td>{{ workout.created_at.strftime("%x") }}</td>
                     <td> <a href="/workout/{{ workout.id }}">{{ workout.workout_name }}</a></td>
                     <td>
                         {% if workout.user_id == session['user_id'] %}
@@ -36,11 +36,11 @@
         </tbody>
     </table>
 
-    <a href='/create/workout' class="btn6">
-        <button>Create a New Workout</button>
+    <a href='/create/workout'>
+        <button class="btn6">Create a New Workout</button>
     </a>
-    <a href="/users/logout" class="btn7">
-        <button>Logout</button>
+    <a href="/users/logout">
+        <button class="btn7">Logout</button>
     </a>
 </body>
 </html>
