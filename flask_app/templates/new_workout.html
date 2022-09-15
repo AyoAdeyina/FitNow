@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Add New Workout</title>
+</head>
+<body>
+    <h2 class="newwk">Add a New Workout</h2>
+
+    {% with messages = get_flashed_messages() %}   
+        {% if messages %}                            
+            {% for message in messages %}            
+                <p>{{message}}</p>                   
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/create/workout" method="POST" class="wkform">
+        <input type="hidden" name="user_id" value="{{ session.user_id }}">
+
+        <label>
+            Target Workout: 
+            <input type="text" name="workout_name">
+        </label>
+
+        <input type="submit" value="Add New Workout">
+    </form>
+
+    <a href="/users/logout" class="btn8">
+        <button>Logout</button>
+    </a>
+
+    <a href="/users/profile" class="btn9">
+        <button>Workouts</button>
+    </a>
+</body>
+</html>

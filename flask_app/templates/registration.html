@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Register</title>
+</head>
+<body>
+    <h1 class="top">FitNow</h1>
+
+    {% with messages = get_flashed_messages() %}   
+        {% if messages %}                            
+            {% for message in messages %}            
+                <p>{{message}}</p>                   
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="reg">
+        <h2>Register:</h2>
+        <form action="/users/register" method="POST">
+            <label>
+                First Name:
+                <input type="text" name="first_name">
+            </label>
+            <label>
+                Last Name:
+                <input type="text" name="last_name">
+            </label>
+            <label>
+                Email:
+                <input type="text" name="email">
+            </label>
+            <label>
+                Password:
+                <input type="password" name="password">
+            </label>
+            <label>
+                Confirm Password:
+                <input type="password" name="confirm_password">
+            </label>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <div class="log">
+        <h2>Login:</h2>
+        <form action="/users/login" method="POST">
+            <label>
+                Email:
+                <input type="text" name="email">
+            </label>
+            <label>
+                Password:
+                <input type="password" name="password">
+            </label>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

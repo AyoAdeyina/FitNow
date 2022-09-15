@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Profile</title>
+</head>
+<body>
+
+    <h2 class="ptop"> Welcome, {{ current_user.first_name }} {{ current_user.last_name }}! </h2>
+
+    <h3 class="ptop2">Workouts for the Week:</h3>
+
+    <table class="wktable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Workout Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for workout in all_workouts %}
+                <tr>
+                    <td>{{ workout.created_at }}</td>
+                    <td> <a href="/workout/{{ workout.id }}">{{ workout.workout_name }}</a></td>
+                    <td>
+                        {% if workout.user_id == session['user_id'] %}
+                        <a href="/destroy/workouts/{{ workout.id }}">Delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href='/create/workout' class="btn6">
+        <button>Create a New Workout</button>
+    </a>
+    <a href="/users/logout" class="btn7">
+        <button>Logout</button>
+    </a>
+</body>
+</html>

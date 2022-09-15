@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Edit Workout</title>
+</head>
+<body>
+    <h2 class="edtop"> Edit {{ old_exercise.workout_name }}  </h2>
+
+    {% with messages = get_flashed_messages() %}   
+        {% if messages %}                            
+            {% for message in messages %}            
+                <p>{{message}}</p>                   
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/update/exercise" method="POST" class="edexer">
+        <input type="hidden" name="id" value="{{ old_exercise.id }}">
+
+        <label>
+            Muscle Group: 
+            <input type="text" name="muscle_group" value="{{ old_exercise.muscle_group }}">
+        </label>
+
+        <label>
+            Exercises:
+            <input type="text" name="exercise_name" value="{{ old_exercise.exercise_name }}">
+        </label>
+
+        <label>
+            Sets:
+            <input type="number" name="sets" value="{{ old_exercise.sets }}">
+        </label>
+
+        <label>
+            Repetition:
+            <input type="number" name="reps" value="{{ old_exercise.reps }}">
+        </label>
+
+
+        <input type="submit" value="Update">
+    </form>
+
+    <a href="/users/logout" class="btn4">
+        <button>Logout</button>
+    </a>
+
+    <a href="/users/profile" class="btn5">
+        <button>Workouts</button>
+    </a>
+</body>
+</html>

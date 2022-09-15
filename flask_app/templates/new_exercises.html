@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Add New Exercise</title>
+</head>
+<body>
+    <h2 class="extop">Workout: {{ this_workout.workout_name }}</h2>
+
+    <table class="extab">
+        <thead>
+            <tr>
+                <th>Muscle Group</th>
+                <th>Exercise Name</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for exercise in this_workout.exercises %}
+                <tr>
+                    <td>{{ exercise.muscle_group }}</td>
+                    <td>{{ exercise.exercise_name}}</td>
+                    <td>{{ exercise.sets }}</td>
+                    <td>{{ exercise.reps }}</td>
+                    <td>
+                        {% if this_workout.user_id == session['user_id'] %}
+                        <a href="/edit/exercises/{{ exercise.id }}">Edit</a> 
+                        <a href="/destroy/exercises/{{ exercise.id }}">Delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2 class="extop2">Add a New Exercises</h2>
+
+    {% with messages = get_flashed_messages() %}   
+        {% if messages %}                            
+            {% for message in messages %}            
+                <p>{{message}}</p>                   
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/create/exercise" method="POST" class="newex">
+        <input type="hidden" name="workout_id" value="{{ this_workout.id }}">
+
+        <label>
+            Muscle Group: 
+            <input type="text" name="muscle_group">
+        </label>
+
+        <label>
+            Exercises:
+            <input type="text" name="exercise_name">
+        </label>
+
+        <label>
+            Sets:
+            <input type="number" name="sets">
+        </label>
+
+        <label>
+            Repetition:
+            <input type="number" name="reps">
+        </label>
+
+        <input type="submit" value="Add New Exercises" class="btn">
+    </form>
+
+    <a href="/users/logout" class="btn2">
+        <button>Logout</button>
+    </a>
+    
+    <a href="/users/profile" class="btn3">
+        <button>Workouts</button>
+    </a>
+
+</body>
+</html>

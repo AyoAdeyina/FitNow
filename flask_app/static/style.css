@@ -1,0 +1,187 @@
+*{
+    color: orangered;
+    text-shadow: 2px 2px 5px black;
+}
+
+html{
+    background-image: url("/static/img/fitnowpic.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+label{
+    display: block;
+    padding: 5px;
+}
+.top{
+    display: flex;
+    justify-content: center;
+}
+
+.reg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 35%;
+    float: left;
+    margin-left: 15%;
+}
+
+.log{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 35%;
+    float: right;
+}
+
+.ptop{
+    display: flex;
+    justify-content: center;
+}
+
+.ptop2{
+    display: flex;
+    justify-content: center;
+}
+
+table, thead, td{
+    border: 3px solid;
+}
+
+.wktable{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table{
+    width: 80%;
+}
+
+td{
+    text-align: center;
+}
+
+.extop{
+    display: flex;
+    justify-content: center;
+}
+
+.extab{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.extop2{
+    display: flex;
+    justify-content: center;
+}
+
+.newex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn{
+    width: 20%;
+}
+
+.btn2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: left;
+    margin-left: 10%;
+    border: 10px black;
+}
+
+.btn3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: right;
+    margin-right: 10%;
+}
+
+.edtop{
+    display: flex;
+    justify-content: center;
+}
+
+.edexer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: left;
+    margin-left: 10%;
+}
+
+.btn5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: right;
+    margin-right: 10%;
+}
+
+.btn6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: left;
+    margin-left: 10%;
+}
+
+.btn7{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: right;
+    margin-right: 10%;
+}
+
+.newwk{
+    display: flex;
+    justify-content: center;
+}
+
+.wkform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn8{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: left;
+    margin-left: 10%;
+}
+
+.btn9{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: right;
+    margin-right: 10%;
+}
