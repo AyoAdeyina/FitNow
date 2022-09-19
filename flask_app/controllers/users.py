@@ -22,7 +22,7 @@ def home():
 @app.route('/users/profile')
 def profile():
     current_user = user.User.get_user_by_id(session['user_id'])
-    all_workouts = workout.Workout.get_all_workouts()
+    all_workouts = workout.Workout.get_all_workouts(session)
     return render_template('profile.html', current_user = current_user, all_workouts = all_workouts)
 
 

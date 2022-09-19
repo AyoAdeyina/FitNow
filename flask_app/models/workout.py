@@ -69,14 +69,15 @@ class Workout:
 
 
     @classmethod
-    def get_all_workouts(cls):
+    def get_all_workouts(cls, data):
         query = """
         SELECT *
         FROM workouts
         JOIN users
         ON workouts.user_id = users.id
+        WHERE workouts.user_id = %(user_id)s
         ;"""
-        result = connectToMySQL(cls.db).query_db(query)
+        result = connectToMySQL(cls.db).query_db(query, data)
         all_workouts = []
         print('$$$$$$$$$$$$$$$$$', result)
         if not result:
