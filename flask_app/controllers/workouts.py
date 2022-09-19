@@ -9,6 +9,7 @@ from flask_app.models import user, workout, exercise
 
 @app.route('/create/workout')
 def create_workout():
+    
     return render_template('new_workout.html')
 
 @app.route('/create/workout', methods=['POST'])
@@ -18,16 +19,9 @@ def finished_workout():
         return redirect(f'/workout/{workout_id}')
     return redirect('/create/workout')
 
-@app.route('/create/exercise')
-def create_exercise():
-    
-    return render_template('new_exercises.html')
-
 @app.route('/create/exercise', methods=['POST'])
 def finished_exercise():
     exercise_id = exercise.Exercise.create_exercise(request.form)
-    if exercise_id:
-        return redirect('/create/exercise')
     return redirect(request.referrer)
 
 
